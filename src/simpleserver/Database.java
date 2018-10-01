@@ -20,7 +20,7 @@ public class Database {
         JsonArray userArray = jObject.getAsJsonArray("users");
         JsonArray postArray = jObject.getAsJsonArray("posts");
 
-        for(JsonElement user : userArray){
+        for (JsonElement user : userArray) {
             JsonObject jsonUser = user.getAsJsonObject();
             String userName = jsonUser.get("username").getAsString();
             int userID = jsonUser.get("userid").getAsInt();
@@ -30,7 +30,7 @@ public class Database {
 
         }
 
-        for(JsonElement post : postArray){
+        for (JsonElement post : postArray) {
             JsonObject jsonPost = post.getAsJsonObject();
             int userID = jsonPost.get("userid").getAsInt();
             int postID = jsonPost.get("postid").getAsInt();
@@ -39,9 +39,5 @@ public class Database {
             postHashMap.put(postID, xPost);
         }
     }
-
-
-
-
 
 }
