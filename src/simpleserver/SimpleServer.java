@@ -10,6 +10,11 @@ class SimpleServer {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
+
+    //database****
+    Database database = new Database();
+
+    System.out.println("test hello");
     try {
       ding = new ServerSocket(1299);
       System.out.println("Opened socket " + 1299);
@@ -52,6 +57,12 @@ class SimpleServer {
         PrintWriter writer = new PrintWriter(out, true);  // char output to the client
 
         //do sthhhh
+
+
+        System.out.println("hello");
+
+
+
         // every response will always have the status-line, date, and server name
         writer.println("HTTP/1.1 200 OK");
         writer.println("Server: TEST");
