@@ -10,8 +10,8 @@ import java.util.HashMap;
 
 public class Database {
 
-    private HashMap<Integer, User> userHashMap = new HashMap<>(); //<username, user>
-    private HashMap<Integer, Post> postHashMap = new HashMap<>();
+    private HashMap<Integer, User> userHashMap = new HashMap<>(); //<userID, User>
+    private HashMap<Integer, Post> postHashMap = new HashMap<>(); //<postID, Post>
 
     public Database() throws FileNotFoundException, UnsupportedEncodingException {
         InputStream inputData = new FileInputStream("./data.json");
@@ -33,17 +33,13 @@ public class Database {
         for(JsonElement post : postArray){
             JsonObject jsonPost = post.getAsJsonObject();
             int userID = jsonPost.get("userid").getAsInt();
-            int postID = jsonPost.get("data").getAsInt();
+            int postID = jsonPost.get("postid").getAsInt();
             String postData = jsonPost.get("data").getAsString();
             Post xPost = new Post(userID, postID, postData);
             postHashMap.put(postID, xPost);
         }
     }
 
-
-    public User getUser(int userID){
-        return userHashMap.get(userID);
-    }
 
 
 
