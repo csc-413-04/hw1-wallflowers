@@ -40,12 +40,4 @@ public class Database {
         }
     }
 
-
-    public User getUser(int userID){
-        return userHashMap.get(userID);
-    }
-
-
-
-
 }
