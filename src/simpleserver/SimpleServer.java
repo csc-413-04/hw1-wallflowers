@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+
 class SimpleServer {
 
   public static void main(String[] args) throws IOException {
@@ -12,8 +13,7 @@ class SimpleServer {
     String resource = null;
 
     //database****
-    Database db = new Database();
-
+    Database database = new Database();
 
     try {
       ding = new ServerSocket(1299);
@@ -57,8 +57,6 @@ class SimpleServer {
         PrintWriter writer = new PrintWriter(out, true);  // char output to the client
 
         //do sthhhh
-
-
 
         // every response will always have the status-line, date, and server name
         writer.println("HTTP/1.1 200 OK");
