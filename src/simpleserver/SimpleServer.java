@@ -1,9 +1,10 @@
 package simpleserver;
 
+import com.google.gson.JsonObject;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-
 
 class SimpleServer {
 
@@ -12,6 +13,9 @@ class SimpleServer {
     Socket dong = null;
     String resource = null;
 
+    // to parse Json
+    JsonObject obj = new JsonObject();
+    
     //database****
     Database database = new Database();
 
