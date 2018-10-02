@@ -12,7 +12,7 @@ class SimpleServer {
     String resource = null;
 
     //database****
-    Database database = new Database();
+    Database db = new Database();
 
 
     try {
@@ -57,6 +57,9 @@ class SimpleServer {
         PrintWriter writer = new PrintWriter(out, true);  // char output to the client
 
         //do sthhhh
+
+
+
         // every response will always have the status-line, date, and server name
         writer.println("HTTP/1.1 200 OK");
         writer.println("Server: TEST");
