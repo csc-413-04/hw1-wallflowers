@@ -14,7 +14,6 @@ class SimpleServer {
     //database****
     Database database = new Database();
 
-
     try {
       ding = new ServerSocket(1299);
       System.out.println("Opened socket " + 1299);
