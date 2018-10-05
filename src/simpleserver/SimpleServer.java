@@ -15,6 +15,10 @@ class SimpleServer {
 
     // to parse Json
     JsonObject obj = new JsonObject();
+    
+    //database****
+    //Database database = new Database();
+
 
     try {
       ding = new ServerSocket(1299);
@@ -56,7 +60,7 @@ class SimpleServer {
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
         PrintWriter writer = new PrintWriter(out, true);  // char output to the client
-        
+
         // every response will always have the status-line, date, and server name
         writer.println("HTTP/1.1 200 OK");
         writer.println("Server: TEST");
