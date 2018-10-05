@@ -26,9 +26,4 @@ public class Post {
         return postData;
     }
 
-
-
-
-
-
 }
