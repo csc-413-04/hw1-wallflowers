@@ -27,7 +27,6 @@ public class Database {
             User xUser = new User(userID, userName);
             userHashMap.put(userID, xUser);
 
-
         }
 
         for (JsonElement post : postArray) {
