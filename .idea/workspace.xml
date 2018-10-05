@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fcbeaf3-41cb-42f9-92fa-e8fb421d8a10" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/simpleserver/ProcessFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simpleserver/ReaderForJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simpleserver/Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simpleserver/ServerProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simpleserver/UserProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lecture2/simpleserver/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lecture2/simpleserver/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lecture2/simpleserver/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lecture2/simpleserver/Post.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lecture2/simpleserver/SimpleServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lecture2/simpleserver/SimpleServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lecture2/simpleserver/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lecture2/simpleserver/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simpleserver/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simpleserver/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simpleserver/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simpleserver/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simpleserver/SimpleServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simpleserver/SimpleServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpleserver/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="799">
               <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -168,7 +155,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -222,7 +209,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538719755744" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538719946873" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/gson-2.6.2-javadoc.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -431,7 +418,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpleserver/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="799">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
