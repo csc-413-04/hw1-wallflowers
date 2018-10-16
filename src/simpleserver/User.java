@@ -1,20 +1,19 @@
 package simpleserver;
 
 public class User {
+    private int userid;
+    private String username;
 
-    private int userID;
-    private String userName;
-
-    public User(int userID, String userName){
-        this.userID = userID;
-        this.userName = userName;
+    protected User(int userid, String username) {
+        this.userid = userid;
+        this.username = username;
     }
 
-    public int getUserID(){
-        return userID;
+    public int getUserID() {
+        return userid;
     }
 
-    public String getUserName(){
-        return userName;
+    public String getUsername() {
+        return username;
     }
 }

@@ -1,72 +1,75 @@
-//***NOT FINSHED***
-
 package simpleserver;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
+import com.google.gson.*;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Collection;
+import java.util.ArrayList;
 
 public class Database {
-
-    private static Database instance;
-    private HashMap<String, User> userHashMap = new HashMap<>(); //<userID, User>
-    private HashMap<String, Post> postHashMap = new HashMap<>(); //<postID, Post>
+    User[] users = null;
+    Post[] posts = null;
+    protected static HashMap<String, User> userHashMap = new HashMap<>();
+    protected static HashMap<String, Post> postsHashMap = new HashMap<>();
 
     public Database() throws FileNotFoundException, UnsupportedEncodingException {
-        InputStream inputData = new FileInputStream("./data.json");
-        JsonParser jParser = new JsonParser();
-        JsonObject jObject = (JsonObject) jParser.parse(new InputStreamReader(inputData, "UTF-8"));
-        JsonArray userArray = jObject.getAsJsonArray("users");
-        JsonArray postArray = jObject.getAsJsonArray("posts");
 
-        for (JsonElement user : userArray) {
-            JsonObject jsonUser = user.getAsJsonObject();
-            String userName = jsonUser.get("username").getAsString();
-            int userID = jsonUser.get("userid").getAsInt();
-            String xUserID = Integer.toString(userID);
-            User xUser = new User(userID, userName);
-            userHashMap.put(xUserID, xUser);
+        Gson gson = new Gson();
+        BufferedReader br;
+        br = new BufferedReader(new FileReader("./src/simpleserver/data.json"));
+        JsonParser jsonParser = new JsonParser();
+        JsonObject obj = jsonParser.parse(br).getAsJsonObject();
 
+        users = gson.fromJson(obj.get("users"), User[].class);
+        posts = gson.fromJson(obj.get("posts"), Post[].class);
+
+        for (User u : users) {
+            String UserIDString = Integer.toString(u.getUserID());
+            userHashMap.put(UserIDString, u);
         }
 
-        for (JsonElement post : postArray) {
-            JsonObject jsonPost = post.getAsJsonObject();
-            int userID = jsonPost.get("userid").getAsInt();
-            int postID = jsonPost.get("postid").getAsInt();
-            String postData = jsonPost.get("data").getAsString();
-            String xPostID = Integer.toString(postID);
-            Post xPost = new Post(userID, postID, postData);
-            postHashMap.put(xPostID, xPost);
+        for (Post p : posts) {
+            String PostIDString = Integer.toString(p.getPostID());
+            postsHashMap.put(PostIDString, p);
         }
     }
 
+    private static Post errorPost = new Post(-1, -1, "Error");
+    private static User errorUser = new User(-1, "Error");
+    static Collection<Post> postsCollection = postsHashMap.values();
+    static ArrayList<Post> postsArrayList = new ArrayList<>(postsCollection);
 
-    public User getUser(String userId) {
-        //returns desired user
-        return userHashMap.get(userId);
-    }
-
-    public Post getPost(String postId) {
-        // returns desired post
-        return postHashMap.get(postId);
-    }
-
-
-    public Post getPostByLength(String postId, String length){
-        //enter logic here
-        return null;
-    }
-
-    public ArrayList<User> getAllUsers(){
-        //enter logic here
-        return null;
+    public User[] returnAllUsers() {
+        return users;
     }
 
 
+    public User getUserbyID(int UserID) {
+        User user = errorUser;
+        if (userHashMap.containsKey(Integer.toString(UserID))) {
+            user = userHashMap.get(Integer.toString(UserID));
+        }
+        return user;
+    }
+
+    public Post getPostbyID(int postID) {
+        Post post = errorPost;
+        if (postsHashMap.containsKey(Integer.toString(postID))) {
+            post = postsHashMap.get(Integer.toString(postID));
+        }
+        return post;
+    }
+
+    public Post getPostbyLength(int maxLength) {
+        Post post = errorPost;
+        for (Post testPost : postsArrayList) {
+            char[] postContentArray = (testPost.getPostContent()).toCharArray();
+            if (postContentArray.length < maxLength) {
+                post = testPost;
+                break;
+            }
+        }
+        return post;
+    }
 
 }

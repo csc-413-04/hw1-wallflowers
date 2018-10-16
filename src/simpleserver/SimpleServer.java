@@ -1,6 +1,7 @@
 package simpleserver;
 
-import com.google.gson.JsonObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -12,13 +13,7 @@ class SimpleServer {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
-
-    // to parse Json
-    JsonObject obj = new JsonObject();
-    
-    //database****
-    //Database database = new Database();
-
+    String mainline = null;
 
     try {
       ding = new ServerSocket(1299);
@@ -39,6 +34,7 @@ class SimpleServer {
 
           // read the first line to get the request method, URI and HTTP version
           String line = in.readLine();
+          mainline = line;
           System.out.println("----------REQUEST START---------");
           System.out.println(line);
           // read only headers
@@ -59,7 +55,7 @@ class SimpleServer {
         }
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
-        PrintWriter writer = new PrintWriter(out, true);  // char output to the client
+        PrintWriter writer = new PrintWriter(out, true); // char output to the client
 
         // every response will always have the status-line, date, and server name
         writer.println("HTTP/1.1 200 OK");
@@ -68,9 +64,14 @@ class SimpleServer {
         writer.println("Content-type: text/html");
         writer.println("");
 
-        // Body of our response
-        writer.println("<h1>Some cool response!</h1>");
+        String[] requests = mainline.split(" ");
+        String[] endpoint = requests[1].split("=");
+        Processor processor = ProcessorFactory.makeProcessor(endpoint[0]);
+        if (processor != null) {
+          String response = processor.process(endpoint);
+          writer.println(response);
 
+        }
         dong.close();
       }
     } catch (IOException e) {

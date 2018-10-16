@@ -1,19 +1,24 @@
 package simpleserver;
 
-import com.google.gson.Gson;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
-public class UserProcessor implements ServerProcessor {
+public class UserProcessor extends Processor {
+
+    public UserProcessor() {
+        try {
+            db = new Database();
+
+        } catch (FileNotFoundException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
-    public String process(String query) {
-        /*// All logic goes in here
-        Response response = new Response();
-        Database db = Database.getDatabase();
-        response.setData(db.getAllUsers());
-        response.setStatus("OK");
-        Gson gson = new Gson();
-        return gson.toJson(response);
-        */
-        return null;
+    public String process(String[] ep) {
+        UserResponse ur = new UserResponse(db, ep);
+        return ur.response();
     }
+
+
 }

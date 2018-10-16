@@ -1,27 +1,18 @@
 package simpleserver;
 
-import java.util.List;
+public abstract class Response {
+    boolean success; // status
+    String id;
 
-public class Response {
-    private String status;
-    private int entries;
-    private List data;
+    public int entries;
+    public String status;
 
-    public Response(String status, int entries, List data) {
+    public void setStatus(String status){
         this.status = status;
-        this.entries = entries;
-        this.data = data;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public int getEntries() {
-        return entries;
-    }
+    public abstract String response();
 
-    public List getData() {
-        return data;
-    }
+
 }

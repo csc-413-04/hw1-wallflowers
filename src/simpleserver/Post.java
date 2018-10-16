@@ -1,29 +1,25 @@
 package simpleserver;
 
 public class Post {
+    private int userid;
+    private int postid;
+    private String postContent;
 
-
-    private int userID;
-    private int postID;
-    private String postData;
-
-
-    public Post (int userID, int postID, String postData){
-        this.userID = userID;
-        this.postID = postID;
-        this.postData = postData;
+    protected Post(int userid, int postid, String postContent) {
+        this.userid = userid;
+        this.postid = postid;
+        this.postContent = postContent;
     }
 
-    public int getUserID(){
-        return userID;
+    public int getUserId() {
+        return userid;
     }
 
-    public int getPostID(){
-        return postID;
+    public int getPostID() {
+        return postid;
     }
 
-    public String getPostData(){
-        return postData;
+    public String getPostContent() {
+        return postContent;
     }
-
 }
